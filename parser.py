@@ -37,8 +37,8 @@ def parse(path='chinese.txt'):
             for j in re.finditer(r'([(（]|)[\u4E00-\u9FFF\uF900-\uFAFF\u2F00-\u2FDF\u3200-\u32FF\u3000-\u303F\u3200-\u32FF]([)）]|)', current_line):
                 hieroglyphs_list.append(j)
             pinyin_list = []
-            if re.search(r'[a-zA-ZāēīōūǖáéíóúǘǎěǐǒǔǚàèìòùǜüĀĒĪŌŪǕÁÉÍÓÚǗǍĚǏǑǓǙÀÈÌÒÙǛÜ]', current_line):
-                for j in re.finditer(r'[a-zA-ZāēīōūǖáéíóúǘǎěǐǒǔǚàèìòùǜüĀĒĪŌŪǕÁÉÍÓÚǗǍĚǏǑǓǙÀÈÌÒÙǛÜ]', current_line):
+            if re.search(r'([(（]|)[a-zA-ZāēīōūǖáéíóúǘǎěǐǒǔǚàèìòùǜüĀĒĪŌŪǕÁÉÍÓÚǗǍĚǏǑǓǙÀÈÌÒÙǛÜ]([)）]|)', current_line):
+                for j in re.finditer(r'([(（]|)[a-zA-ZāēīōūǖáéíóúǘǎěǐǒǔǚàèìòùǜüĀĒĪŌŪǕÁÉÍÓÚǗǍĚǏǑǓǙÀÈÌÒÙǛÜ]([)）]|)', current_line):
                     pinyin_list.append(j)
             translation_list = []
             if re.search(r'[0-9а-яА-Я]', current_line):
